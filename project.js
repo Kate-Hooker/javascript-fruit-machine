@@ -42,4 +42,11 @@ const getNumberOfLines = () => {
 }
 
 const depositAmount = deposit()
-console.log('Youre balance is ' + depositAmount)
+const numberOfLines = getNumberOfLines()
+console.log(
+  'Youre balance is ' +
+    depositAmount +
+    ' and you bet on ' +
+    numberOfLines +
+    ' lines'
+)
