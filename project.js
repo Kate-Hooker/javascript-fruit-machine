@@ -20,8 +20,10 @@ const deposit = () => {
   // this confirm thats if that input in NaN or less than zero it loops back and asks for a real number
   if (isNaN(numberDepositAmount) || numberDepositAmount <= 0) {
     console.log(
-      'Whole dollar bets only! Try again. Enter your deposit amount: '
-    )
+      'Whole dollar bets only! Try again. '
+    )} else {
+      return numberDepositAmount;
+    }
   }
   }
 }
