@@ -11,6 +11,8 @@
 
 const prompt = require('prompt-sync')()
 const deposit = () => {
+
+  while (true) {
   const depositAmount = prompt('Enter a deposit amount: ')
   //this works by converting number strings to numbers - if it gets words or letters you get NaN
   const numberDepositAmount = parseFloat(depositAmount)
@@ -21,6 +23,9 @@ const deposit = () => {
       'Whole dollar bets only! Try again. Enter your deposit amount: '
     )
   }
+  }
 }
+
+
 
 deposit()
