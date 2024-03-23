@@ -41,12 +41,27 @@ const getNumberOfLines = () => {
   }
 }
 
-const depositAmount = deposit()
+// 3. get bet - set balance so its not a constant, collect user input amount, calculte total bet based on lines, check if enough was bet
+
+// when bet place check to make sure funds are available
+const getBet = (balance) => {
+  while (true) {
+    const bet = prompt('Enter your bet: ')
+    const numberBet = parseFloat(bet)
+    if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance) {
+      console.log('Invalid bet, try again.')
+    } else {
+      return numberBet
+    }
+  }
+}
+
+let balance = deposit()
 const numberOfLines = getNumberOfLines()
-console.log(
-  'Youre balance is ' +
-    depositAmount +
-    ' and you bet on ' +
-    numberOfLines +
-    ' lines'
-)
+//console.log(
+// 'Youre balance is ' +
+//  depositAmount +
+//' and you bet on ' +
+//numberOfLines +
+//' lines'
+//)
