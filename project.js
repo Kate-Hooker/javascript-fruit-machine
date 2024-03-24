@@ -15,12 +15,20 @@ const prompt = require('prompt-sync')()
 const ROWS = 3
 const COLS = 3
 
-// remember to treat this as an object and the values are keys
+// remember to treat this as an object and the values are keys repping how many times each value shows on a roll
 const SYMBOLS_COUNT = {
   A: 2,
   B: 4,
   C: 6,
   D: 8,
+}
+
+// object defining how much each letters worth
+const SYMBOL_VALUES = {
+  A: 5,
+  B: 4,
+  C: 3,
+  D: 2,
 }
 
 const deposit = () => {
@@ -67,6 +75,12 @@ const getBet = (balance, lines) => {
       return numberBet
     }
   }
+}
+
+//randomise the slot machine
+const spine = () => {
+  //put all the symbols in an array
+  const symbols = []
 }
 
 let balance = deposit()
