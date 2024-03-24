@@ -92,21 +92,26 @@ const spin = () => {
     }
   }
 
-  const reels = [[], [], []]
+  const reels = []
 
-    // to make a spin iterate through each reel on the fruit machine and randomise a symbol for each nested reel
-  for (let i = 0; i < COLS; i++){
+  // to make a spin iterate through each reel on the fruit machine and randomise a symbol for each nested reel
+  for (let i = 0; i < COLS; i++) {
+    reels.push([])
     // copies the available symbols available to each array in reels
     const reelSymbols = [...symbols]
-    for (let j = 0; j < ROWS; j++){
+    for (let j = 0; j < ROWS; j++) {
       const randomIndex = Math.floor(Math.random() * reelSymbols.length)
       //math.floor rounds down to the nearest integer
       const selectedSymbol = reelSymbols[randomIndex]
+      // next push into array with the reels array nested in it and make sure the selected symbol cant be repeated
+      reels[i].push(selectedSymbol)
+      reelSymbols.splice(randomIndex, 1)
     }
   }
+  return reels
 }
 
-spin()
+const reels = spin()
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
