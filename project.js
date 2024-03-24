@@ -125,11 +125,27 @@ const transpose = (reels) => {
   return rows
 }
 
+// print the 3 rows of symbols so user can see what they bet on
+const printRows = (rows) => {
+  for (const row of rows) {
+    let rowString = 'A'
+    for (const [i, symbol] of rows.entries()) {
+      // += concatenates a string
+      rowString += symbol
+      if (i != rows.length - 1) {
+        rowString += ' | '
+      }
+    }
+    console.log(rowString)
+  }
+}
+
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
 const reels = spin()
 const rows = transpose(reels)
+printRows(rows)
 
 //console.log(
 //'Youre balance is ' + depositAmount + ' and you bet on ' + numberOfLines
