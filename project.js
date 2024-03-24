@@ -91,7 +91,19 @@ const spin = () => {
       symbols.push(symbol)
     }
   }
+
   const reels = [[], [], []]
+
+    // to make a spin iterate through each reel on the fruit machine and randomise a symbol for each nested reel
+  for (let i = 0; i < COLS; i++){
+    // copies the available symbols available to each array in reels
+    const reelSymbols = [...symbols]
+    for (let j = 0; j < ROWS; j++){
+      const randomIndex = Math.floor(Math.random() * reelSymbols.length)
+      //math.floor rounds down to the nearest integer
+      const selectedSymbol = reelSymbols[randomIndex]
+    }
+  }
 }
 
 spin()
