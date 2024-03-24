@@ -111,7 +111,6 @@ const spin = () => {
   return reels
 }
 
-
 // transpose the reels - right now the array generates 2 collumns, i need these sorted into rows so I can check for a win
 const transpose = (reels) => {
   const rows = []
@@ -125,15 +124,17 @@ const transpose = (reels) => {
   }
   return rows
 }
-}
 
-
-const reels = spin()
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
-console.log(
-  'Youre balance is ' + depositAmount + ' and you bet on ' + numberOfLines
-  // + ' lines. TOTAL BET TODAY IS ' +
-  // numberOfLines * bet
-)
+const reels = spin()
+const rows = transpose(reels)
+
+//console.log(
+//'Youre balance is ' + depositAmount + ' and you bet on ' + numberOfLines
+// + ' lines. TOTAL BET TODAY IS ' +
+// numberOfLines * bet
+//)
+console.log('Your columns are: ' + reels)
+console.log('Your rows are: ' + rows)
