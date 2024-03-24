@@ -81,6 +81,16 @@ const getBet = (balance, lines) => {
 const spine = () => {
   //put all the symbols in an array
   const symbols = []
+  // loop through everthing and put it in the array
+  // in this object the keys are the symbols and the values are the count
+
+  for (const [symbol, count] of Object.entries(SYMBOLS_COUNT)) {
+    // this loops through every symbol and count, now we can put it in the array
+    for (let i = 0; i < count; i++) {
+      // this loops through every count and pushes it to the end of the array
+      symbols.push(symbol)
+    }
+  }
 }
 
 let balance = deposit()
