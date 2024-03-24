@@ -10,6 +10,19 @@
 // run node project.js to use terminal like a python terminal
 
 const prompt = require('prompt-sync')()
+
+//DEFINING THE SLOT MACHINE - global variables so can mess with them later
+const ROWS = 3
+const COLS = 3
+
+// remember to treat this as an object and the values are keys
+const SYMBOLS_COUNT = {
+  A: 2,
+  B: 4,
+  C: 6,
+  D: 8,
+}
+
 const deposit = () => {
   while (true) {
     const depositAmount = prompt('Enter a deposit amount: ')
@@ -44,11 +57,11 @@ const getNumberOfLines = () => {
 // 3. get bet - set balance so its not a constant, collect user input amount, calculte total bet based on lines, check if enough was bet
 
 // when bet place check to make sure funds are available
-const getBet = (balance) => {
+const getBet = (balance, lines) => {
   while (true) {
-    const bet = prompt('Enter your bet: ')
+    const bet = prompt('Enter your the amount you want to bet per line: ')
     const numberBet = parseFloat(bet)
-    if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance) {
+    if (isNaN(numberBet) || numberBet <= 0 || numberBet > balance / lines) {
       console.log('Invalid bet, try again.')
     } else {
       return numberBet
@@ -58,10 +71,9 @@ const getBet = (balance) => {
 
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
-//console.log(
-// 'Youre balance is ' +
-//  depositAmount +
-//' and you bet on ' +
-//numberOfLines +
-//' lines'
-//)
+const bet = getBet(balance, numberOfLines)
+console.log(
+  'Youre balance is ' + depositAmount + ' and you bet on ' + numberOfLines
+  // + ' lines. TOTAL BET TODAY IS ' +
+  // numberOfLines * bet
+)
