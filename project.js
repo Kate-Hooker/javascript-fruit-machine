@@ -78,7 +78,7 @@ const getBet = (balance, lines) => {
 }
 
 //randomise the slot machine
-const spine = () => {
+const spin = () => {
   //put all the symbols in an array
   const symbols = []
   // loop through everthing and put it in the array
@@ -91,8 +91,10 @@ const spine = () => {
       symbols.push(symbol)
     }
   }
+  const reels = [[], [], []]
 }
 
+spin()
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
