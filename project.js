@@ -111,6 +111,23 @@ const spin = () => {
   return reels
 }
 
+
+// transpose the reels - right now the array generates 2 collumns, i need these sorted into rows so I can check for a win
+const transpose = (reels) => {
+  const rows = []
+
+  // going to write a new loop to take all the symbols from collumn index 0 and push them into the rows array
+  for (let i = 0; i < ROWS; i++) {
+    rows.push([])
+    for (let j = 0; j < COLS; j++) {
+      rows[i].push(reels[j][i])
+    }
+  }
+  return rows
+}
+}
+
+
 const reels = spin()
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
