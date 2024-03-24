@@ -140,6 +140,24 @@ const printRows = (rows) => {
   }
 }
 
+// calculate a win and add winnings to balance
+const getWinnings = (rows, bet, lines) => {
+  let winnings = 0
+
+  for (let row = 0; row < lines; row++) {
+    const symbols = rows[row]
+    let allSame = true
+
+    //loop compares nominated to symbol to all the other symbols in the line, if it ever doesnt match the loop breaks
+    for (const symbol of symbols) {
+      if (symbol != symbols[0]) {
+        allSame = false
+        break
+      }
+    }
+  }
+}
+
 let balance = deposit()
 const numberOfLines = getNumberOfLines()
 const bet = getBet(balance, numberOfLines)
